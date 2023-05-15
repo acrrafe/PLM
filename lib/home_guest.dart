@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plm_enhancement_application/notification.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'login_page.dart';
+import 'main.dart';
 import 'plm_courses_page.dart';
 
 class DashBoardGuestPage extends StatefulWidget {

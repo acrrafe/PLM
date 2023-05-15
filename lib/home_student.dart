@@ -4,7 +4,7 @@ import 'package:plm_enhancement_application/student_profile.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'change_password.dart';
-import 'login_page.dart';
+import 'main.dart';
 import 'plm_courses_page.dart';
 
 class DashBoardStudentPage extends StatefulWidget {

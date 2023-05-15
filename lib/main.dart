@@ -15,20 +15,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,),
-      home: const MyHomePage(title: 'Flutter Login Pagge'),
+      home: const MyAppHomePage(title: 'Flutter Login Pagge'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyAppHomePage extends StatefulWidget {
+  const MyAppHomePage({super.key, required this.title});
   final String title;
 
   @override // Show login
-  State<MyHomePage> createState() => LoginPage();
+  State<MyAppHomePage> createState() => MyAppHomePageState();
 }
 
-class LoginPage extends State<MyHomePage> {
+class MyAppHomePageState extends State<MyAppHomePage> {
   bool _backButtonPressedOnce = false;
   @override
   Widget build(BuildContext context) {
