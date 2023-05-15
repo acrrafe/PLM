@@ -789,7 +789,7 @@ class _DashBoardStudentWidgetState extends State<DashBoardStudentPage> {
   }
   // CRS
   _launchCRS()  {
-    const url = 'https://plm.edu.ph/crs/';
+    const url = 'https://web1.plm.edu.ph/crs/';
     Navigator.push(
       context,
       MaterialPageRoute(
