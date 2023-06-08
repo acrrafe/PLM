@@ -1,5 +1,8 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:plm_enhancement_application/notification.dart';
+import 'package:plm_enhancement_application/plm_map.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'main.dart';
@@ -100,6 +103,107 @@ class _WebViewLauncherState extends State<WebViewLauncher> {
     );
   }
 }
+
+class CarouselWithArrows extends StatefulWidget {
+  @override
+  _CarouselWithArrowsState createState() => _CarouselWithArrowsState();
+}
+
+class _CarouselWithArrowsState extends State<CarouselWithArrows> {
+  CarouselController _carouselController = CarouselController();
+  int _currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+          carouselController: _carouselController,
+          items: [
+            _buildCarouselItem('images/plm_news1.jpg', 0),
+            _buildCarouselItem('images/plm_news2.jpg', 1),
+            _buildCarouselItem('images/plm_news3.jpg', 2),
+            // Add more carousel items here
+          ],
+          options: CarouselOptions(
+            height: 250,
+            enableInfiniteScroll: true,
+            initialPage: 0,
+            viewportFraction: 1.0,
+            aspectRatio: 16 / 9,
+            autoPlay: true,
+            scrollDirection: Axis.horizontal,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCarouselItem(String imagePath, int index) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Image.asset(
+          imagePath,
+          fit: BoxFit.contain,
+          width: double.infinity,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Visibility(
+              child: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  _carouselController.previousPage();
+                  setState(() {
+                    _currentIndex--;
+                  });
+                },
+              ),
+            ),
+            Visibility(
+              child: IconButton(
+                icon: Icon(Icons.arrow_forward_ios),
+                onPressed: () {
+                  _carouselController.nextPage();
+                  setState(() {
+                    _currentIndex++;
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: 10,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: _buildDotIndicators(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  List<Widget> _buildDotIndicators() {
+    return List<Widget>.generate(3, (index) {
+      return Container(
+        width: 8.0,
+        height: 8.0,
+        margin: EdgeInsets.symmetric(horizontal: 4.0),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _currentIndex == index ? Colors.blue[100] : Colors.grey,
+        ),
+      );
+    });
+  }
+}
 final borderRadius = BorderRadius.circular(24);
 class DashBoardGuestWidgetState extends State<DashBoardGuestPage> {
   @override
@@ -124,9 +228,7 @@ class DashBoardGuestWidgetState extends State<DashBoardGuestPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                constraints: const BoxConstraints(maxHeight: 250),
-                child: Image.asset('images/home_plm_img.png', fit: BoxFit.cover, width: double.infinity)),
+              CarouselWithArrows(),
               // Card view About PLM
               Padding(padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
                 child: Card(color: const Color(0xFFFAF9F6), elevation: 2.0,
@@ -200,7 +302,7 @@ class DashBoardGuestWidgetState extends State<DashBoardGuestPage> {
                   ),
                   child: InkWell(
                     onTap: () {
-                      _launchLocatePLM(); // Launch Google Maps PLM
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>  MapGuidePage()));
                     },
                     borderRadius: borderRadius,
                     splashColor: Colors.grey.withOpacity(0.5),
