@@ -710,7 +710,7 @@ class _DashBoardStudentWidgetState extends State<DashBoardStudentPage> {
                             } else {
                               // Convert formattedDate to a DateTime object
                               String formattedDate = formattedDateValue!.replaceAll('/', '-');
-                              DateTime parsedDate = DateFormat('yyyy-MM-dd').parse(formattedDate);
+                              DateTime parsedDate = DateFormat('yyyy-dd-MM').parse(formattedDate);
                               print("PARSE DATE: $parsedDate");
                               print("CURRENT TIME: $currentTime");
                               // IF THE FORM IS OPEN CHECK IF USER HD FORM IS STILL VALID TO THE CURRENT DATE

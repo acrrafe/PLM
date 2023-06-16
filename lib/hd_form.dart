@@ -55,6 +55,7 @@ class _HealthDeclarationFormPageState extends State<HealthDeclarationFormPage> {
     final formattedDate = "${tomorrow.year}/${tomorrow.day}/${tomorrow.month}";
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("${widget.email}_hdDate", formattedDate);
+    print("FORMATTED DATE: $formattedDate");
 
     if (firstAnswer || secondAnswer || thirdAnswer || fourthAnswer) {
       showDialog(
