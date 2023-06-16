@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "801006125457",
+    "project_id": "plm-firebase",
+    "storage_bucket": "plm-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801006125457:android:611275cd8102b998479a30",
+        "android_client_info": {
+          "package_name": "com.example.plm_enhancement_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801006125457-32ldqg8878asu33ehnm1v8dsiucm8drl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plm_enhancement_application",
+            "certificate_hash": "09918fe36a743ec7d783f78d56543d2e679dcdd0"
+          }
+        },
+        {
+          "client_id": "801006125457-oukt05v1tlcusvduinpbfu58a588g45c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtxu8XrzRTV8MK1dk4NkJpcaa3ZlxCB70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801006125457-oukt05v1tlcusvduinpbfu58a588g45c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
